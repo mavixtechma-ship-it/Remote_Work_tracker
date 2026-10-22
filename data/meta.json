@@ -1,0 +1,17 @@
+{
+  "product": "PresenceHub",
+  "asOf": "2026-10-21",
+  "asOfTime": "15:16",
+  "featuredEmployeeId": "E-1007",
+  "directory": {
+    "domain": "example.local",
+    "ldapPath": "LDAP://DC=example,DC=local",
+    "serviceAccount": "svc_presencehub",
+    "syncIntervalMinutes": 15,
+    "lastSyncMinutesAgo": 3,
+    "usersSynced": 40,
+    "usersTotal": 40,
+    "groupsMapped": 8,
+    "groupsTotal": 8
+  }
+}

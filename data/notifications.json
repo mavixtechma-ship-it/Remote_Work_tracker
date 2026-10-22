@@ -1,0 +1,50 @@
+[
+  {
+    "id": "N-1",
+    "unread": true,
+    "kind": "success",
+    "title": "Weekly hours target reached",
+    "body": "You have logged 40.2 hours this week. Nice consistency.",
+    "at": "2026-10-21T15:00:00"
+  },
+  {
+    "id": "N-2",
+    "unread": true,
+    "kind": "warning",
+    "title": "Idle time over 30 minutes",
+    "body": "An idle period of 32 minutes was recorded between 11:31 and 12:03.",
+    "at": "2026-10-21T12:05:00"
+  },
+  {
+    "id": "N-3",
+    "unread": true,
+    "kind": "info",
+    "title": "Monthly attendance summary is ready",
+    "body": "Your September summary is available in My Attendance.",
+    "at": "2026-10-21T09:00:00"
+  },
+  {
+    "id": "N-4",
+    "unread": false,
+    "kind": "milestone",
+    "title": "Score milestone",
+    "body": "Your presence score crossed 85 for the first time this month.",
+    "at": "2026-10-20T17:00:00"
+  },
+  {
+    "id": "N-5",
+    "unread": false,
+    "kind": "policy",
+    "title": "Flexible hours policy updated",
+    "body": "Core collaboration hours are now 10:00 – 15:00. Please review the updated policy.",
+    "at": "2026-10-19T09:00:00"
+  },
+  {
+    "id": "N-6",
+    "unread": false,
+    "kind": "success",
+    "title": "Last week confirmed",
+    "body": "Your attendance for 12 – 16 Oct was confirmed by your manager.",
+    "at": "2026-10-17T10:00:00"
+  }
+]

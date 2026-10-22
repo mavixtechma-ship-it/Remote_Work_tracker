@@ -1,0 +1,124 @@
+/* PresenceHub — custom DaisyUI themes + small extras. Layout/utility styling comes from Tailwind classes. */
+
+/* ---------- Themes (DaisyUI 5 custom themes) ---------- */
+[data-theme="presence-light"] {
+  color-scheme: light;
+  --color-base-100: #ffffff;
+  --color-base-200: #f1f5f9;
+  --color-base-300: #e2e8f0;
+  --color-base-content: #0f172a;
+  --color-primary: #0369a1;
+  --color-primary-content: #f0f9ff;
+  --color-secondary: #475569;
+  --color-secondary-content: #f8fafc;
+  --color-accent: #bef264;
+  --color-accent-content: #1a2e05;
+  --color-neutral: #1e293b;
+  --color-neutral-content: #f8fafc;
+  --color-info: #0284c7;
+  --color-info-content: #f0f9ff;
+  --color-success: #15803d;
+  --color-success-content: #f0fdf4;
+  --color-warning: #b45309;
+  --color-warning-content: #fffbeb;
+  --color-error: #b91c1c;
+  --color-error-content: #fef2f2;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.875rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+  --ph-muted: #64748b;
+  --ph-grid: #e2e8f0;
+  --ph-heat-0: #e2e8f0;
+}
+
+[data-theme="presence-dark"] {
+  color-scheme: dark;
+  --color-base-100: #111a2e;
+  --color-base-200: #0b1220;
+  --color-base-300: #24324a;
+  --color-base-content: #e2e8f0;
+  --color-primary: #38bdf8;
+  --color-primary-content: #082f49;
+  --color-secondary: #94a3b8;
+  --color-secondary-content: #0f172a;
+  --color-accent: #d9f99d;
+  --color-accent-content: #1a2e05;
+  --color-neutral: #334155;
+  --color-neutral-content: #f1f5f9;
+  --color-info: #7dd3fc;
+  --color-info-content: #082f49;
+  --color-success: #4ade80;
+  --color-success-content: #052e16;
+  --color-warning: #fbbf24;
+  --color-warning-content: #451a03;
+  --color-error: #f87171;
+  --color-error-content: #450a0a;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.875rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+  --ph-muted: #94a3b8;
+  --ph-grid: #24324a;
+  --ph-heat-0: #1e293b;
+}
+
+/* ---------- Base ---------- */
+:root {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+html, body { font-family: var(--font-sans); }
+body { background: var(--color-base-200); color: var(--color-base-content); }
+.num { font-variant-numeric: tabular-nums; }
+.text-muted { color: var(--ph-muted); }
+.code-block { font-family: var(--font-mono); white-space: pre; overflow-x: auto; }
+
+/* Pages (hash router) */
+[data-view][hidden] { display: none !important; }
+
+/* Hide guarded content until boot + scripts have run, avoids flashing protected UI */
+html:not(.ph-ready) .ph-app { visibility: hidden; }
+
+/* Live dot */
+.live-dot { width: .5rem; height: .5rem; border-radius: 9999px; background: var(--color-success); display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .live-dot { animation: ph-pulse 1.8s ease-in-out infinite; }
+  .ph-fade { animation: ph-fade .25s ease-out; }
+}
+@keyframes ph-pulse { 50% { opacity: .35; } }
+@keyframes ph-fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+/* Timeline rail */
+.ph-timeline { position: relative; }
+.ph-timeline::before { content: ""; position: absolute; inset-block: .75rem; inset-inline-start: 1rem; width: 1px; background: var(--color-base-300); }
+
+/* Calendar heatmap */
+.heat-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .375rem; }
+.heat-cell { aspect-ratio: 1 / 1; border-radius: .375rem; background: var(--ph-heat-0); display: flex; align-items: flex-end; justify-content: flex-end; padding: .2rem .3rem; font-size: .65rem; line-height: 1; }
+.heat-cell[data-level="1"] { background: color-mix(in oklab, var(--color-primary) 25%, var(--ph-heat-0)); }
+.heat-cell[data-level="2"] { background: color-mix(in oklab, var(--color-primary) 50%, var(--ph-heat-0)); }
+.heat-cell[data-level="3"] { background: color-mix(in oklab, var(--color-primary) 75%, var(--ph-heat-0)); color: var(--color-primary-content); }
+.heat-cell[data-level="4"] { background: var(--color-primary); color: var(--color-primary-content); }
+.heat-cell[data-kind="absent"] { outline: 2px solid var(--color-error); outline-offset: -2px; }
+.heat-cell[data-kind="blank"] { background: transparent; }
+
+/* Focus ring */
+:where(a, button, input, select, [tabindex]):focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+/* Chart containers keep a fixed height so Chart.js can be responsive */
+.chart-box { position: relative; width: 100%; }
+.chart-box.h-60 { height: 15rem; }
+.chart-box.h-72 { height: 18rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

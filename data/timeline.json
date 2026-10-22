@@ -1,0 +1,1276 @@
+{
+  "E-1001": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "08:33",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "08:36",
+      "end": "10:34"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "10:34",
+      "end": "10:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "10:45",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1002": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "08:29",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "08:32",
+      "end": "11:03"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:03",
+      "end": "11:24"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "11:24",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1003": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:11",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "09:14",
+      "end": "11:18"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:18",
+      "end": "11:37"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "11:37",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1004": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "08:38",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "08:41",
+      "end": "10:30"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "10:30",
+      "end": "10:51"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "10:51",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1005": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:50",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "09:53",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:15"
+    },
+    {
+      "type": "active",
+      "label": "Active — Spreadsheets",
+      "start": "12:15",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "check-out",
+      "label": "Checked out — workstation sign-out",
+      "start": "14:26",
+      "end": null
+    }
+  ],
+  "E-1006": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:29",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "09:32",
+      "end": "11:46"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:46",
+      "end": "12:05"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "12:05",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1007": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:02",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "09:05",
+      "end": "11:15"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:15",
+      "end": "11:34"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "11:34",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1008": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:02",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "09:05",
+      "end": "11:09"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:09",
+      "end": "11:26"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "11:26",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1009": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:37",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "09:40",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:01"
+    },
+    {
+      "type": "active",
+      "label": "Active — Spreadsheets",
+      "start": "12:01",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1010": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "10:04",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "10:07",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:04"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "12:04",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "check-out",
+      "label": "Checked out — workstation sign-out",
+      "start": "14:15",
+      "end": null
+    }
+  ],
+  "E-1011": [],
+  "E-1012": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "10:06",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "10:09",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:15"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "12:15",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "check-out",
+      "label": "Checked out — workstation sign-out",
+      "start": "14:51",
+      "end": null
+    }
+  ],
+  "E-1013": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:10",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "09:13",
+      "end": "11:38"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:38",
+      "end": "11:51"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "11:51",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "check-out",
+      "label": "Checked out — workstation sign-out",
+      "start": "14:37",
+      "end": null
+    }
+  ],
+  "E-1014": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "10:00",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "10:03",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:01"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "12:01",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1015": [],
+  "E-1016": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:50",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "09:53",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:12"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "12:12",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1017": [],
+  "E-1018": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:59",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "10:02",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:02"
+    },
+    {
+      "type": "active",
+      "label": "Active — Spreadsheets",
+      "start": "12:02",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1019": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:26",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "09:29",
+      "end": "11:40"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:40",
+      "end": "11:59"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "11:59",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1020": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:23",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "09:26",
+      "end": "11:46"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:46",
+      "end": "12:09"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "12:09",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1021": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:54",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "09:57",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:00"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "12:00",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1022": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:58",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "10:01",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:01"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "12:01",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1023": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "08:35",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "08:38",
+      "end": "11:12"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:12",
+      "end": "11:24"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "11:24",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1024": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "10:10",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "10:13",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:08"
+    },
+    {
+      "type": "active",
+      "label": "Active — Spreadsheets",
+      "start": "12:08",
+      "end": "13:00"
+    }
+  ],
+  "E-1025": [],
+  "E-1026": [],
+  "E-1027": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:10",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "09:13",
+      "end": "11:28"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:28",
+      "end": "11:51"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "11:51",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1028": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "08:31",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "08:34",
+      "end": "11:05"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:05",
+      "end": "11:24"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "11:24",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1029": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "08:26",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "08:29",
+      "end": "10:25"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "10:25",
+      "end": "10:50"
+    },
+    {
+      "type": "active",
+      "label": "Active — Spreadsheets",
+      "start": "10:50",
+      "end": "13:00"
+    }
+  ],
+  "E-1030": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "10:08",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "10:11",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:00"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "12:00",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1031": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:50",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "09:53",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:09"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "12:09",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1032": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:37",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "09:40",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:15"
+    },
+    {
+      "type": "active",
+      "label": "Active — Spreadsheets",
+      "start": "12:15",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1033": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "08:43",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "08:46",
+      "end": "11:04"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:04",
+      "end": "11:20"
+    },
+    {
+      "type": "active",
+      "label": "Active — Spreadsheets",
+      "start": "11:20",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1034": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "10:05",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "10:08",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:09"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "12:09",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1035": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:39",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "09:42",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:04"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "12:04",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1036": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:22",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "09:25",
+      "end": "11:49"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:49",
+      "end": "11:59"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "11:59",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Code editor",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1037": [],
+  "E-1038": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "09:42",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "09:45",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:04"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "12:04",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1039": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "08:53",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Team chat",
+      "start": "08:56",
+      "end": "10:48"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "10:48",
+      "end": "11:04"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "11:04",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "13:45",
+      "end": null
+    }
+  ],
+  "E-1040": [
+    {
+      "type": "check-in",
+      "label": "Checked in — workstation sign-in detected",
+      "start": "10:01",
+      "end": null
+    },
+    {
+      "type": "active",
+      "label": "Active — Web browser",
+      "start": "10:04",
+      "end": "11:50"
+    },
+    {
+      "type": "idle",
+      "label": "Idle detected",
+      "start": "11:50",
+      "end": "12:00"
+    },
+    {
+      "type": "active",
+      "label": "Active — Mail client",
+      "start": "12:00",
+      "end": "13:00"
+    },
+    {
+      "type": "locked",
+      "label": "Screen locked — lunch break",
+      "start": "13:00",
+      "end": "13:45"
+    },
+    {
+      "type": "check-out",
+      "label": "Checked out — workstation sign-out",
+      "start": "13:54",
+      "end": null
+    }
+  ]
+}

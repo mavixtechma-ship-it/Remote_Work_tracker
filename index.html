@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en" data-page="admin" data-theme="presence-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Admin console · PresenceHub</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="js/boot.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.0.43/daisyui.css" integrity="sha384-GpZvzTn90XHbuU32zaqvKd1BTQ48STfdKZ45UrD3RqgurdsfZTYDkN6SFY7NpeEo" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11/dist/index.global.js" integrity="sha384-XXN6/S6yXj8EpXnBTw3JGR9ZM+hixGxFCLYn0FHtg9cWh0ziKmAgTPEhecbCDOmj" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="min-h-screen">
+<div class="ph-app drawer lg:drawer-open">
+  <input id="nav-drawer" type="checkbox" class="drawer-toggle" aria-label="Toggle navigation">
+
+  <div class="drawer-content flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <header class="navbar sticky top-0 z-30 bg-base-100/90 backdrop-blur border-b border-base-300 px-4 gap-2">
+      <label for="nav-drawer" class="btn btn-ghost btn-square btn-sm lg:hidden" aria-label="Open navigation"><span data-icon="menu"></span></label>
+      <div class="flex-1 min-w-0">
+        <div class="breadcrumbs text-xs text-muted py-0"><ul><li>Admin console</li><li id="crumb">Overview</li></ul></div>
+        <h1 id="page-title" class="text-lg font-bold leading-tight truncate">Overview</h1>
+      </div>
+      <span class="hidden md:inline-flex items-center gap-2 badge badge-ghost badge-sm"><span class="live-dot" aria-hidden="true"></span><span data-bind="as-of">Loading…</span></span>
+      <button type="button" class="btn btn-ghost btn-sm btn-square" data-action="toggle-theme" aria-label="Toggle theme"></button>
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-sm gap-2" aria-label="Account menu">
+          <div class="avatar avatar-placeholder"><div class="bg-primary text-primary-content w-7 rounded-full text-xs font-bold"><span data-bind="session-initial">?</span></div></div>
+          <span class="hidden sm:inline" data-bind="session-user"></span>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu bg-base-100 border border-base-300 rounded-box w-56 p-2 mt-2 shadow-sm z-40">
+          <li class="menu-title"><span data-bind="session-role"></span></li>
+          <li><a href="user.html"><span data-icon="user" data-icon-class="size-4"></span>Employee view</a></li>
+          <li><button type="button" data-action="logout"><span data-icon="logout" data-icon-class="size-4"></span>Sign out</button></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="flex-1 p-4 md:p-6 lg:p-8 max-w-[1440px] w-full mx-auto" id="main">
+      <div id="role-banner"></div>
+      <div id="load-state"></div>
+
+      <!-- ============ OVERVIEW ============ -->
+      <section data-view="overview" hidden>
+        <div class="flex flex-wrap items-end justify-between gap-3 mb-6">
+          <p class="text-sm text-muted">Real-time attendance across all departments.</p>
+          <button type="button" class="btn btn-primary btn-sm" id="btn-simulate" data-requires="edit"><span data-icon="play" data-icon-class="size-4"></span>Simulate check-in</button>
+        </div>
+        <div id="ov-kpis" class="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-6"></div>
+        <div class="grid grid-cols-12 gap-6 mb-6">
+          <article class="card bg-base-100 border border-base-300 col-span-12 xl:col-span-8">
+            <div class="card-body">
+              <div class="flex items-center justify-between">
+                <h2 class="card-title text-base">Check-ins and check-outs by hour</h2>
+                <span class="text-xs text-muted">Today</span>
+              </div>
+              <div class="chart-box h-72"><canvas id="chart-hourly" aria-label="Bar chart of check-ins and check-outs per hour" role="img"></canvas></div>
+            </div>
+          </article>
+          <article class="card bg-base-100 border border-base-300 col-span-12 xl:col-span-4">
+            <div class="card-body">
+              <div class="flex items-center justify-between">
+                <h2 class="card-title text-base">Live activity</h2>
+                <span class="badge badge-success badge-soft badge-sm gap-1.5"><span class="live-dot" aria-hidden="true"></span>Live</span>
+              </div>
+              <ul id="ov-activity" class="divide-y divide-base-300 -mx-1 max-h-80 overflow-y-auto"></ul>
+            </div>
+          </article>
+        </div>
+        <div class="grid grid-cols-12 gap-6">
+          <article class="card bg-base-100 border border-base-300 col-span-12 lg:col-span-7">
+            <div class="card-body">
+              <h2 class="card-title text-base">Department attendance today</h2>
+              <div class="chart-box h-60"><canvas id="chart-depts" aria-label="Horizontal bar chart of attendance by department" role="img"></canvas></div>
+            </div>
+          </article>
+          <article class="card bg-base-100 border border-base-300 col-span-12 lg:col-span-5">
+            <div class="card-body">
+              <h2 class="card-title text-base">Presence status</h2>
+              <div class="grid grid-cols-2 items-center gap-4">
+                <div class="chart-box h-60"><canvas id="chart-status" aria-label="Doughnut chart of presence status" role="img"></canvas></div>
+                <ul id="ov-status-legend" class="space-y-3 text-sm"></ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ EMPLOYEES ============ -->
+      <section data-view="employees" hidden>
+        <div class="card bg-base-100 border border-base-300">
+          <div class="card-body gap-4">
+            <form id="emp-filters" class="flex flex-wrap items-end gap-3" role="search">
+              <label class="input input-sm w-full sm:w-64">
+                <span data-icon="search" data-icon-class="size-4 opacity-60"></span>
+                <input type="search" id="emp-search" placeholder="Search name or title" maxlength="60" aria-label="Search employees">
+              </label>
+              <select id="emp-dept" class="select select-sm w-auto" aria-label="Filter by department"><option value="">All departments</option></select>
+              <select id="emp-status" class="select select-sm w-auto" aria-label="Filter by status">
+                <option value="">Any status</option><option value="online">Online</option><option value="away">Away</option><option value="offline">Offline</option>
+              </select>
+              <span id="emp-count" class="text-xs text-muted ms-auto"></span>
+              <button type="button" class="btn btn-sm btn-outline" id="btn-sync" data-requires="edit"><span data-icon="refresh" data-icon-class="size-4"></span>Sync directory</button>
+            </form>
+            <div class="overflow-x-auto border border-base-300 rounded-box">
+              <table class="table table-sm table-pin-rows">
+                <thead>
+                  <tr class="bg-base-200">
+                    <th scope="col"><button type="button" class="sort-btn font-semibold" data-sort="name">Employee</button></th>
+                    <th scope="col"><button type="button" class="sort-btn font-semibold" data-sort="department">Department</button></th>
+                    <th scope="col"><button type="button" class="sort-btn font-semibold" data-sort="status">Status</button></th>
+                    <th scope="col" class="text-right"><button type="button" class="sort-btn font-semibold" data-sort="checkIn">Check-in</button></th>
+                    <th scope="col" class="text-right">Check-out</th>
+                    <th scope="col" class="text-right"><button type="button" class="sort-btn font-semibold" data-sort="minutesToday">Hours</button></th>
+                    <th scope="col">Behaviour</th>
+                    <th scope="col" class="text-right"><button type="button" class="sort-btn font-semibold" data-sort="score">Score</button></th>
+                  </tr>
+                </thead>
+                <tbody id="emp-tbody"></tbody>
+              </table>
+            </div>
+            <div class="flex items-center justify-between">
+              <span id="emp-page-label" class="text-xs text-muted"></span>
+              <div class="join">
+                <button type="button" class="join-item btn btn-sm" id="emp-prev" aria-label="Previous page"><span data-icon="chevronLeft" data-icon-class="size-4"></span></button>
+                <button type="button" class="join-item btn btn-sm" id="emp-next" aria-label="Next page"><span data-icon="chevronRight" data-icon-class="size-4"></span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PROFILE ============ -->
+      <section data-view="profile" hidden>
+        <div class="card bg-base-100 border border-base-300 mb-6">
+          <div class="card-body flex-row flex-wrap items-center gap-5" id="pf-header"></div>
+        </div>
+        <div id="pf-kpis" class="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-6"></div>
+        <div class="card bg-base-100 border border-base-300">
+          <div class="card-body">
+            <div role="tablist" class="tabs tabs-box w-fit mb-4" id="pf-tabs">
+              <button type="button" role="tab" class="tab tab-active" data-tab="timeline" aria-selected="true">Timeline</button>
+              <button type="button" role="tab" class="tab" data-tab="apps" aria-selected="false">App usage</button>
+              <button type="button" role="tab" class="tab" data-tab="calendar" aria-selected="false">30-day calendar</button>
+            </div>
+            <div data-pane="timeline"><ol id="pf-timeline" class="ph-timeline space-y-4"></ol></div>
+            <div data-pane="apps" hidden><div id="pf-apps" class="space-y-4 max-w-2xl"></div></div>
+            <div data-pane="calendar" hidden>
+              <div class="max-w-xl">
+                <div class="heat-grid text-[0.65rem] text-muted text-center mb-1.5" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+                <div id="pf-heat" class="heat-grid"></div>
+                <div class="flex items-center gap-2 mt-3 text-xs text-muted">
+                  <span>Fewer hours</span>
+                  <span class="heat-cell w-4" data-level="0" aria-hidden="true"></span><span class="heat-cell w-4" data-level="1" aria-hidden="true"></span><span class="heat-cell w-4" data-level="2" aria-hidden="true"></span><span class="heat-cell w-4" data-level="3" aria-hidden="true"></span><span class="heat-cell w-4" data-level="4" aria-hidden="true"></span>
+                  <span>More hours</span>
+                  <span class="heat-cell w-4 ms-3" data-kind="absent" aria-hidden="true"></span><span>Absent</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ DIRECTORY (admin only) ============ -->
+      <section data-view="directory" data-admin-only hidden>
+        <div class="grid grid-cols-12 gap-6">
+          <article class="card bg-base-100 border border-base-300 col-span-12 lg:col-span-7">
+            <div class="card-body">
+              <h2 class="card-title text-base">How directory integration works</h2>
+              <ol class="mt-2 space-y-4">
+                <li class="flex gap-3"><span class="badge badge-primary badge-soft font-bold">1</span><div><p class="font-semibold text-sm">LDAP connection</p><p class="text-sm text-muted">A service account binds to the domain controller over LDAPS.</p></div></li>
+                <li class="flex gap-3"><span class="badge badge-primary badge-soft font-bold">2</span><div><p class="font-semibold text-sm">User sync</p><p class="text-sm text-muted">Accounts in the selected OUs are imported with name, email, department and manager.</p></div></li>
+                <li class="flex gap-3"><span class="badge badge-primary badge-soft font-bold">3</span><div><p class="font-semibold text-sm">Single sign-on</p><p class="text-sm text-muted">Integrated Windows authentication (Negotiate/Kerberos) signs employees in silently.</p></div></li>
+                <li class="flex gap-3"><span class="badge badge-primary badge-soft font-bold">4</span><div><p class="font-semibold text-sm">Role mapping</p><p class="text-sm text-muted">Security groups map to Admin, Manager and Employee roles.</p></div></li>
+                <li class="flex gap-3"><span class="badge badge-primary badge-soft font-bold">5</span><div><p class="font-semibold text-sm">Automatic deprovisioning</p><p class="text-sm text-muted">Disabled directory accounts lose access on the next sync.</p></div></li>
+                <li class="flex gap-3"><span class="badge badge-primary badge-soft font-bold">6</span><div><p class="font-semibold text-sm">Scheduled sync</p><p class="text-sm text-muted">A background job re-syncs on a fixed interval.</p></div></li>
+              </ol>
+            </div>
+          </article>
+          <div class="col-span-12 lg:col-span-5 flex flex-col gap-6">
+            <article class="card bg-base-100 border border-base-300">
+              <div class="card-body">
+                <div class="flex items-center justify-between">
+                  <h2 class="card-title text-base">Sync status</h2>
+                  <button type="button" class="btn btn-sm btn-primary" id="btn-sync-now" data-requires="edit"><span data-icon="refresh" data-icon-class="size-4"></span>Run sync now</button>
+                </div>
+                <div id="dir-status" class="space-y-4 mt-2"></div>
+              </div>
+            </article>
+            <article class="card bg-base-100 border border-base-300">
+              <div class="card-body">
+                <h2 class="card-title text-base">Sample configuration</h2>
+                <p class="text-xs text-muted">appsettings.json (placeholder values)</p>
+                <pre id="dir-config" class="code-block bg-base-200 rounded-box p-4 text-xs leading-relaxed"></pre>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ REPORTS ============ -->
+      <section data-view="reports" hidden>
+        <div class="grid grid-cols-12 gap-6 mb-6">
+          <article class="card bg-base-100 border border-base-300 col-span-12 xl:col-span-8">
+            <div class="card-body">
+              <div class="flex items-center justify-between">
+                <h2 class="card-title text-base">Attendance rate — last 30 days</h2>
+                <span class="text-xs text-muted">Working days only</span>
+              </div>
+              <div class="chart-box h-72"><canvas id="chart-trend" aria-label="Line chart of daily attendance rate over 30 days" role="img"></canvas></div>
+            </div>
+          </article>
+          <article class="card bg-base-100 border border-base-300 col-span-12 xl:col-span-4">
+            <div class="card-body">
+              <h2 class="card-title text-base">Exports</h2>
+              <p class="text-xs text-muted -mt-1">CSV files generated in your browser from the mock data.</p>
+              <ul class="menu w-full p-0 mt-2 gap-1" id="report-list">
+                <li><button type="button" data-report="daily" data-requires="edit"><span data-icon="clock" data-icon-class="size-4"></span><span class="flex-1 text-left">Daily attendance<span class="block text-xs text-muted">Check-in/out per employee today</span></span><span data-icon="download" data-icon-class="size-4 opacity-60"></span></button></li>
+                <li><button type="button" data-report="monthly" data-requires="edit"><span data-icon="calendar" data-icon-class="size-4"></span><span class="flex-1 text-left">Monthly summary<span class="block text-xs text-muted">Days present, hours, idle %</span></span><span data-icon="download" data-icon-class="size-4 opacity-60"></span></button></li>
+                <li><button type="button" data-report="departments" data-requires="edit"><span data-icon="building" data-icon-class="size-4"></span><span class="flex-1 text-left">Department breakdown<span class="block text-xs text-muted">Headcount and presence by team</span></span><span data-icon="download" data-icon-class="size-4 opacity-60"></span></button></li>
+                <li><button type="button" data-report="late" data-requires="edit"><span data-icon="alert" data-icon-class="size-4"></span><span class="flex-1 text-left">Late arrivals &amp; absences<span class="block text-xs text-muted">Last 30 days</span></span><span data-icon="download" data-icon-class="size-4 opacity-60"></span></button></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <article class="card bg-base-100 border border-base-300">
+          <div class="card-body">
+            <h2 class="card-title text-base">Monthly overview</h2>
+            <div class="overflow-x-auto border border-base-300 rounded-box max-h-[28rem]">
+              <table class="table table-sm table-pin-rows">
+                <thead><tr class="bg-base-200">
+                  <th scope="col">Employee</th><th scope="col">Department</th><th scope="col" class="text-right">Days present</th><th scope="col" class="text-right">Absent</th>
+                  <th scope="col" class="text-right">Avg check-in</th><th scope="col" class="text-right">Avg hours</th><th scope="col" class="text-right">Idle %</th><th scope="col">Rating</th>
+                </tr></thead>
+                <tbody id="rep-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ============ ROADMAP ============ -->
+      <section data-view="roadmap" hidden>
+        <div class="grid grid-cols-12 gap-6">
+          <article class="card bg-base-100 border border-base-300 col-span-12 lg:col-span-8">
+            <div class="card-body">
+              <h2 class="card-title text-base">Delivery phases</h2>
+              <ul class="timeline timeline-vertical timeline-compact mt-2">
+                <li>
+                  <div class="timeline-middle text-success"><span data-icon="check" data-icon-class="size-5"></span></div>
+                  <div class="timeline-end timeline-box mb-4 w-full"><p class="text-xs font-semibold uppercase tracking-wide text-success">Phase 1 · Core · 8 weeks · done</p><p class="text-sm mt-1">Directory SSO and user sync · sign-in/sign-out detection · real-time admin dashboard · employee self-service · daily and weekly reports · background workstation agent</p></div>
+                  <hr class="bg-success">
+                </li>
+                <li>
+                  <hr class="bg-success">
+                  <div class="timeline-middle text-primary"><span data-icon="activity" data-icon-class="size-5"></span></div>
+                  <div class="timeline-end timeline-box mb-4 w-full"><p class="text-xs font-semibold uppercase tracking-wide text-primary">Phase 2 · Behaviour · 4 weeks · in progress</p><p class="text-sm mt-1">Active application tracking · idle detection and alerts · lock/unlock events · presence scoring · manager notifications</p></div>
+                  <hr>
+                </li>
+                <li>
+                  <hr>
+                  <div class="timeline-middle text-muted"><span data-icon="trend" data-icon-class="size-5"></span></div>
+                  <div class="timeline-end timeline-box mb-4 w-full"><p class="text-xs font-semibold uppercase tracking-wide text-muted">Phase 3 · Analytics · 4 weeks</p><p class="text-sm mt-1">Department trends · anomaly detection for late/absence patterns · Excel/PDF exports · email digests · HR integration hooks</p></div>
+                  <hr>
+                </li>
+                <li>
+                  <hr>
+                  <div class="timeline-middle text-muted"><span data-icon="flag" data-icon-class="size-5"></span></div>
+                  <div class="timeline-end timeline-box w-full"><p class="text-xs font-semibold uppercase tracking-wide text-muted">Phase 4 · Future</p><p class="text-sm mt-1">Mobile/PWA client · leave management · payroll integration · AI attendance insights · multi-site support</p></div>
+                </li>
+              </ul>
+            </div>
+          </article>
+          <article class="card bg-base-100 border border-base-300 col-span-12 lg:col-span-4">
+            <div class="card-body">
+              <h2 class="card-title text-base">Reference stack</h2>
+              <dl class="text-sm space-y-3 mt-1">
+                <div><dt class="text-xs uppercase tracking-wide text-muted">Backend</dt><dd>ASP.NET Core Web API · EF Core · SignalR · background jobs · LDAP</dd></div>
+                <div><dt class="text-xs uppercase tracking-wide text-muted">Agent</dt><dd>.NET Windows service · tray app</dd></div>
+                <div><dt class="text-xs uppercase tracking-wide text-muted">Data</dt><dd>SQL Server · Redis cache</dd></div>
+                <div><dt class="text-xs uppercase tracking-wide text-muted">This demo</dt><dd>Static HTML · Tailwind + DaisyUI · Chart.js · mock JSON</dd></div>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="drawer-side z-40">
+    <label for="nav-drawer" class="drawer-overlay" aria-label="Close navigation"></label>
+    <aside class="w-64 min-h-full bg-base-100 border-r border-base-300 flex flex-col">
+      <a href="#overview" class="flex items-center gap-2.5 px-5 h-16 border-b border-base-300">
+        <svg class="size-8" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0369a1"/><path d="M9 21.5a9 9 0 0 1 0-11M23 10.5a9 9 0 0 1 0 11" fill="none" stroke="#e0f2fe" stroke-width="2.2" stroke-linecap="round"/><path d="M12.6 18.6a4.5 4.5 0 0 1 0-5.2M19.4 13.4a4.5 4.5 0 0 1 0 5.2" fill="none" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.6" fill="#bef264"/></svg>
+        <span class="text-lg font-extrabold tracking-tight">PresenceHub</span>
+      </a>
+      <nav class="flex-1 p-3" aria-label="Admin navigation">
+        <ul class="menu w-full gap-0.5" id="side-nav">
+          <li class="menu-title">Monitor</li>
+          <li><a href="#overview" data-nav="overview"><span data-icon="overview" data-icon-class="size-4"></span>Overview</a></li>
+          <li><a href="#employees" data-nav="employees"><span data-icon="users" data-icon-class="size-4"></span>Employees<span class="badge badge-sm badge-success badge-soft ms-auto num" data-bind="online-count"></span></a></li>
+          <li><a href="#profile" data-nav="profile"><span data-icon="user" data-icon-class="size-4"></span>Employee profile</a></li>
+          <li class="menu-title mt-3">Manage</li>
+          <li data-admin-only><a href="#directory" data-nav="directory"><span data-icon="key" data-icon-class="size-4"></span>Directory sync</a></li>
+          <li><a href="#reports" data-nav="reports"><span data-icon="report" data-icon-class="size-4"></span>Reports</a></li>
+          <li><a href="#roadmap" data-nav="roadmap"><span data-icon="flag" data-icon-class="size-4"></span>Roadmap</a></li>
+          <li class="menu-title mt-3">Switch</li>
+          <li><a href="user.html"><span data-icon="eye" data-icon-class="size-4"></span>Employee view</a></li>
+        </ul>
+      </nav>
+      <div class="p-4 border-t border-base-300 text-xs text-muted">
+        <p class="font-medium text-base-content" data-bind="session-role"></p>
+        <p>Demo · mock data only</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div id="toast-host" class="toast toast-end z-50" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" integrity="sha384-bs/nf9FbdNouRbMiFcrcZfLXYPKiPaGVGplVbv7dLGECccEXDW+S3zjqSKR5ZEaD" crossorigin="anonymous" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/ui.js" defer></script>
+<script src="js/admin.js" defer></script>
+</body>
+</html>

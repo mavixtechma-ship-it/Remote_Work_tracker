@@ -1,0 +1,892 @@
+{
+  "E-1001": [
+    {
+      "app": "Mail client",
+      "pct": 22
+    },
+    {
+      "app": "Code editor",
+      "pct": 21
+    },
+    {
+      "app": "Other",
+      "pct": 19
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 17
+    },
+    {
+      "app": "Team chat",
+      "pct": 15
+    },
+    {
+      "app": "Web browser",
+      "pct": 6
+    }
+  ],
+  "E-1002": [
+    {
+      "app": "Mail client",
+      "pct": 23
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 23
+    },
+    {
+      "app": "Team chat",
+      "pct": 17
+    },
+    {
+      "app": "Other",
+      "pct": 16
+    },
+    {
+      "app": "Web browser",
+      "pct": 13
+    },
+    {
+      "app": "Code editor",
+      "pct": 8
+    }
+  ],
+  "E-1003": [
+    {
+      "app": "Mail client",
+      "pct": 24
+    },
+    {
+      "app": "Code editor",
+      "pct": 21
+    },
+    {
+      "app": "Team chat",
+      "pct": 20
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 19
+    },
+    {
+      "app": "Web browser",
+      "pct": 11
+    },
+    {
+      "app": "Other",
+      "pct": 5
+    }
+  ],
+  "E-1004": [
+    {
+      "app": "Code editor",
+      "pct": 26
+    },
+    {
+      "app": "Web browser",
+      "pct": 26
+    },
+    {
+      "app": "Mail client",
+      "pct": 23
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 10
+    },
+    {
+      "app": "Team chat",
+      "pct": 8
+    },
+    {
+      "app": "Other",
+      "pct": 7
+    }
+  ],
+  "E-1005": [
+    {
+      "app": "Other",
+      "pct": 25
+    },
+    {
+      "app": "Mail client",
+      "pct": 23
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 23
+    },
+    {
+      "app": "Code editor",
+      "pct": 15
+    },
+    {
+      "app": "Team chat",
+      "pct": 8
+    },
+    {
+      "app": "Web browser",
+      "pct": 6
+    }
+  ],
+  "E-1006": [
+    {
+      "app": "Spreadsheets",
+      "pct": 25
+    },
+    {
+      "app": "Mail client",
+      "pct": 24
+    },
+    {
+      "app": "Team chat",
+      "pct": 15
+    },
+    {
+      "app": "Other",
+      "pct": 14
+    },
+    {
+      "app": "Code editor",
+      "pct": 12
+    },
+    {
+      "app": "Web browser",
+      "pct": 10
+    }
+  ],
+  "E-1007": [
+    {
+      "app": "Mail client",
+      "pct": 33
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 19
+    },
+    {
+      "app": "Other",
+      "pct": 17
+    },
+    {
+      "app": "Code editor",
+      "pct": 15
+    },
+    {
+      "app": "Web browser",
+      "pct": 11
+    },
+    {
+      "app": "Team chat",
+      "pct": 5
+    }
+  ],
+  "E-1008": [
+    {
+      "app": "Other",
+      "pct": 23
+    },
+    {
+      "app": "Team chat",
+      "pct": 21
+    },
+    {
+      "app": "Code editor",
+      "pct": 17
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 15
+    },
+    {
+      "app": "Web browser",
+      "pct": 14
+    },
+    {
+      "app": "Mail client",
+      "pct": 10
+    }
+  ],
+  "E-1009": [
+    {
+      "app": "Code editor",
+      "pct": 24
+    },
+    {
+      "app": "Mail client",
+      "pct": 22
+    },
+    {
+      "app": "Team chat",
+      "pct": 21
+    },
+    {
+      "app": "Web browser",
+      "pct": 17
+    },
+    {
+      "app": "Other",
+      "pct": 12
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 4
+    }
+  ],
+  "E-1010": [
+    {
+      "app": "Code editor",
+      "pct": 29
+    },
+    {
+      "app": "Web browser",
+      "pct": 18
+    },
+    {
+      "app": "Mail client",
+      "pct": 18
+    },
+    {
+      "app": "Other",
+      "pct": 15
+    },
+    {
+      "app": "Team chat",
+      "pct": 11
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 9
+    }
+  ],
+  "E-1011": [],
+  "E-1012": [
+    {
+      "app": "Team chat",
+      "pct": 27
+    },
+    {
+      "app": "Other",
+      "pct": 26
+    },
+    {
+      "app": "Web browser",
+      "pct": 18
+    },
+    {
+      "app": "Code editor",
+      "pct": 13
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 9
+    },
+    {
+      "app": "Mail client",
+      "pct": 7
+    }
+  ],
+  "E-1013": [
+    {
+      "app": "Spreadsheets",
+      "pct": 29
+    },
+    {
+      "app": "Other",
+      "pct": 28
+    },
+    {
+      "app": "Code editor",
+      "pct": 16
+    },
+    {
+      "app": "Mail client",
+      "pct": 12
+    },
+    {
+      "app": "Web browser",
+      "pct": 8
+    },
+    {
+      "app": "Team chat",
+      "pct": 7
+    }
+  ],
+  "E-1014": [
+    {
+      "app": "Code editor",
+      "pct": 23
+    },
+    {
+      "app": "Web browser",
+      "pct": 22
+    },
+    {
+      "app": "Team chat",
+      "pct": 18
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 17
+    },
+    {
+      "app": "Mail client",
+      "pct": 12
+    },
+    {
+      "app": "Other",
+      "pct": 8
+    }
+  ],
+  "E-1015": [],
+  "E-1016": [
+    {
+      "app": "Code editor",
+      "pct": 36
+    },
+    {
+      "app": "Mail client",
+      "pct": 19
+    },
+    {
+      "app": "Other",
+      "pct": 15
+    },
+    {
+      "app": "Team chat",
+      "pct": 11
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 10
+    },
+    {
+      "app": "Web browser",
+      "pct": 9
+    }
+  ],
+  "E-1017": [],
+  "E-1018": [
+    {
+      "app": "Web browser",
+      "pct": 22
+    },
+    {
+      "app": "Code editor",
+      "pct": 21
+    },
+    {
+      "app": "Mail client",
+      "pct": 18
+    },
+    {
+      "app": "Other",
+      "pct": 17
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 14
+    },
+    {
+      "app": "Team chat",
+      "pct": 8
+    }
+  ],
+  "E-1019": [
+    {
+      "app": "Web browser",
+      "pct": 29
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 26
+    },
+    {
+      "app": "Code editor",
+      "pct": 20
+    },
+    {
+      "app": "Team chat",
+      "pct": 14
+    },
+    {
+      "app": "Mail client",
+      "pct": 7
+    },
+    {
+      "app": "Other",
+      "pct": 4
+    }
+  ],
+  "E-1020": [
+    {
+      "app": "Web browser",
+      "pct": 30
+    },
+    {
+      "app": "Other",
+      "pct": 29
+    },
+    {
+      "app": "Code editor",
+      "pct": 13
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 13
+    },
+    {
+      "app": "Team chat",
+      "pct": 9
+    },
+    {
+      "app": "Mail client",
+      "pct": 6
+    }
+  ],
+  "E-1021": [
+    {
+      "app": "Mail client",
+      "pct": 27
+    },
+    {
+      "app": "Other",
+      "pct": 27
+    },
+    {
+      "app": "Web browser",
+      "pct": 18
+    },
+    {
+      "app": "Code editor",
+      "pct": 13
+    },
+    {
+      "app": "Team chat",
+      "pct": 8
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 7
+    }
+  ],
+  "E-1022": [
+    {
+      "app": "Web browser",
+      "pct": 29
+    },
+    {
+      "app": "Code editor",
+      "pct": 22
+    },
+    {
+      "app": "Team chat",
+      "pct": 22
+    },
+    {
+      "app": "Other",
+      "pct": 18
+    },
+    {
+      "app": "Mail client",
+      "pct": 5
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 4
+    }
+  ],
+  "E-1023": [
+    {
+      "app": "Code editor",
+      "pct": 28
+    },
+    {
+      "app": "Team chat",
+      "pct": 22
+    },
+    {
+      "app": "Mail client",
+      "pct": 21
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 12
+    },
+    {
+      "app": "Web browser",
+      "pct": 9
+    },
+    {
+      "app": "Other",
+      "pct": 8
+    }
+  ],
+  "E-1024": [
+    {
+      "app": "Spreadsheets",
+      "pct": 27
+    },
+    {
+      "app": "Mail client",
+      "pct": 23
+    },
+    {
+      "app": "Code editor",
+      "pct": 17
+    },
+    {
+      "app": "Team chat",
+      "pct": 14
+    },
+    {
+      "app": "Web browser",
+      "pct": 13
+    },
+    {
+      "app": "Other",
+      "pct": 6
+    }
+  ],
+  "E-1025": [],
+  "E-1026": [],
+  "E-1027": [
+    {
+      "app": "Mail client",
+      "pct": 29
+    },
+    {
+      "app": "Web browser",
+      "pct": 26
+    },
+    {
+      "app": "Code editor",
+      "pct": 20
+    },
+    {
+      "app": "Other",
+      "pct": 11
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 10
+    },
+    {
+      "app": "Team chat",
+      "pct": 4
+    }
+  ],
+  "E-1028": [
+    {
+      "app": "Code editor",
+      "pct": 23
+    },
+    {
+      "app": "Team chat",
+      "pct": 17
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 17
+    },
+    {
+      "app": "Web browser",
+      "pct": 15
+    },
+    {
+      "app": "Mail client",
+      "pct": 14
+    },
+    {
+      "app": "Other",
+      "pct": 14
+    }
+  ],
+  "E-1029": [
+    {
+      "app": "Code editor",
+      "pct": 24
+    },
+    {
+      "app": "Web browser",
+      "pct": 22
+    },
+    {
+      "app": "Mail client",
+      "pct": 21
+    },
+    {
+      "app": "Other",
+      "pct": 18
+    },
+    {
+      "app": "Team chat",
+      "pct": 13
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 2
+    }
+  ],
+  "E-1030": [
+    {
+      "app": "Code editor",
+      "pct": 19
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 19
+    },
+    {
+      "app": "Team chat",
+      "pct": 17
+    },
+    {
+      "app": "Web browser",
+      "pct": 16
+    },
+    {
+      "app": "Mail client",
+      "pct": 15
+    },
+    {
+      "app": "Other",
+      "pct": 14
+    }
+  ],
+  "E-1031": [
+    {
+      "app": "Other",
+      "pct": 25
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 23
+    },
+    {
+      "app": "Code editor",
+      "pct": 16
+    },
+    {
+      "app": "Web browser",
+      "pct": 16
+    },
+    {
+      "app": "Team chat",
+      "pct": 12
+    },
+    {
+      "app": "Mail client",
+      "pct": 8
+    }
+  ],
+  "E-1032": [
+    {
+      "app": "Mail client",
+      "pct": 28
+    },
+    {
+      "app": "Code editor",
+      "pct": 24
+    },
+    {
+      "app": "Web browser",
+      "pct": 24
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 9
+    },
+    {
+      "app": "Other",
+      "pct": 8
+    },
+    {
+      "app": "Team chat",
+      "pct": 7
+    }
+  ],
+  "E-1033": [
+    {
+      "app": "Mail client",
+      "pct": 19
+    },
+    {
+      "app": "Code editor",
+      "pct": 18
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 18
+    },
+    {
+      "app": "Other",
+      "pct": 16
+    },
+    {
+      "app": "Team chat",
+      "pct": 15
+    },
+    {
+      "app": "Web browser",
+      "pct": 14
+    }
+  ],
+  "E-1034": [
+    {
+      "app": "Code editor",
+      "pct": 23
+    },
+    {
+      "app": "Web browser",
+      "pct": 21
+    },
+    {
+      "app": "Mail client",
+      "pct": 20
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 13
+    },
+    {
+      "app": "Other",
+      "pct": 12
+    },
+    {
+      "app": "Team chat",
+      "pct": 11
+    }
+  ],
+  "E-1035": [
+    {
+      "app": "Team chat",
+      "pct": 36
+    },
+    {
+      "app": "Other",
+      "pct": 18
+    },
+    {
+      "app": "Web browser",
+      "pct": 17
+    },
+    {
+      "app": "Code editor",
+      "pct": 16
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 8
+    },
+    {
+      "app": "Mail client",
+      "pct": 5
+    }
+  ],
+  "E-1036": [
+    {
+      "app": "Mail client",
+      "pct": 22
+    },
+    {
+      "app": "Other",
+      "pct": 22
+    },
+    {
+      "app": "Code editor",
+      "pct": 18
+    },
+    {
+      "app": "Team chat",
+      "pct": 15
+    },
+    {
+      "app": "Web browser",
+      "pct": 13
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 10
+    }
+  ],
+  "E-1037": [],
+  "E-1038": [
+    {
+      "app": "Code editor",
+      "pct": 24
+    },
+    {
+      "app": "Team chat",
+      "pct": 24
+    },
+    {
+      "app": "Other",
+      "pct": 22
+    },
+    {
+      "app": "Mail client",
+      "pct": 14
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 10
+    },
+    {
+      "app": "Web browser",
+      "pct": 6
+    }
+  ],
+  "E-1039": [
+    {
+      "app": "Code editor",
+      "pct": 52
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 13
+    },
+    {
+      "app": "Web browser",
+      "pct": 11
+    },
+    {
+      "app": "Mail client",
+      "pct": 9
+    },
+    {
+      "app": "Team chat",
+      "pct": 8
+    },
+    {
+      "app": "Other",
+      "pct": 7
+    }
+  ],
+  "E-1040": [
+    {
+      "app": "Mail client",
+      "pct": 26
+    },
+    {
+      "app": "Code editor",
+      "pct": 25
+    },
+    {
+      "app": "Other",
+      "pct": 21
+    },
+    {
+      "app": "Spreadsheets",
+      "pct": 17
+    },
+    {
+      "app": "Team chat",
+      "pct": 8
+    },
+    {
+      "app": "Web browser",
+      "pct": 3
+    }
+  ]
+}

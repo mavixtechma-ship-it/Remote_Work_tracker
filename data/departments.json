@@ -1,0 +1,44 @@
+[
+  {
+    "id": "eng",
+    "name": "Engineering",
+    "headcount": 7,
+    "presentToday": 5,
+    "attendancePct": 71
+  },
+  {
+    "id": "prd",
+    "name": "Product",
+    "headcount": 7,
+    "presentToday": 6,
+    "attendancePct": 86
+  },
+  {
+    "id": "fin",
+    "name": "Finance",
+    "headcount": 7,
+    "presentToday": 6,
+    "attendancePct": 86
+  },
+  {
+    "id": "ppl",
+    "name": "People Ops",
+    "headcount": 7,
+    "presentToday": 7,
+    "attendancePct": 100
+  },
+  {
+    "id": "ops",
+    "name": "Operations",
+    "headcount": 6,
+    "presentToday": 4,
+    "attendancePct": 67
+  },
+  {
+    "id": "cs",
+    "name": "Customer Success",
+    "headcount": 6,
+    "presentToday": 6,
+    "attendancePct": 100
+  }
+]

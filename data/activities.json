@@ -1,0 +1,58 @@
+[
+  {
+    "id": "A-1",
+    "type": "check-in",
+    "employeeId": "E-1006",
+    "text": "checked in",
+    "minutesAgo": 1
+  },
+  {
+    "id": "A-2",
+    "type": "idle",
+    "employeeId": "E-1001",
+    "text": "idle for more than 30 minutes",
+    "minutesAgo": 4
+  },
+  {
+    "id": "A-3",
+    "type": "resume",
+    "employeeId": "E-1008",
+    "text": "resumed activity",
+    "minutesAgo": 7
+  },
+  {
+    "id": "A-4",
+    "type": "check-out",
+    "employeeId": "E-1005",
+    "text": "checked out",
+    "minutesAgo": 22
+  },
+  {
+    "id": "A-5",
+    "type": "sync",
+    "employeeId": null,
+    "text": "Directory sync completed — 40 accounts",
+    "minutesAgo": 31
+  },
+  {
+    "id": "A-6",
+    "type": "idle",
+    "employeeId": "E-1020",
+    "text": "screen locked",
+    "minutesAgo": 38
+  },
+  {
+    "id": "A-7",
+    "type": "check-in",
+    "employeeId": "E-1016",
+    "text": "checked in",
+    "minutesAgo": 64
+  },
+  {
+    "id": "A-8",
+    "type": "resume",
+    "employeeId": "E-1007",
+    "text": "resumed activity",
+    "minutesAgo": 91
+  }
+]

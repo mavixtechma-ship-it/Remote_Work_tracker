@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en" data-page="employee" data-theme="presence-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>My presence · PresenceHub</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="js/boot.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.0.43/daisyui.css" integrity="sha384-GpZvzTn90XHbuU32zaqvKd1BTQ48STfdKZ45UrD3RqgurdsfZTYDkN6SFY7NpeEo" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11/dist/index.global.js" integrity="sha384-XXN6/S6yXj8EpXnBTw3JGR9ZM+hixGxFCLYn0FHtg9cWh0ziKmAgTPEhecbCDOmj" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="min-h-screen">
+<div class="ph-app drawer lg:drawer-open">
+  <input id="nav-drawer" type="checkbox" class="drawer-toggle" aria-label="Toggle navigation">
+
+  <div class="drawer-content flex flex-col min-h-screen">
+    <header class="navbar sticky top-0 z-30 bg-base-100/90 backdrop-blur border-b border-base-300 px-4 gap-2">
+      <label for="nav-drawer" class="btn btn-ghost btn-square btn-sm lg:hidden" aria-label="Open navigation"><span data-icon="menu"></span></label>
+      <div class="flex-1 min-w-0">
+        <div class="breadcrumbs text-xs text-muted py-0"><ul><li>Employee view</li><li id="crumb">Today</li></ul></div>
+        <h1 id="page-title" class="text-lg font-bold leading-tight truncate">Today</h1>
+      </div>
+      <span class="hidden md:inline-flex badge badge-ghost badge-sm gap-1.5"><span data-icon="eye" data-icon-class="size-3.5"></span>Viewing as <span class="font-semibold" data-bind="emp-name">…</span></span>
+      <button type="button" class="btn btn-ghost btn-sm btn-square" data-action="toggle-theme" aria-label="Toggle theme"></button>
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-sm gap-2" aria-label="Account menu">
+          <div class="avatar avatar-placeholder"><div class="bg-primary text-primary-content w-7 rounded-full text-xs font-bold"><span data-bind="session-initial">?</span></div></div>
+          <span class="hidden sm:inline" data-bind="session-user"></span>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu bg-base-100 border border-base-300 rounded-box w-56 p-2 mt-2 shadow-sm z-40">
+          <li class="menu-title"><span data-bind="session-role"></span></li>
+          <li><a href="index.html"><span data-icon="overview" data-icon-class="size-4"></span>Admin console</a></li>
+          <li><button type="button" data-action="logout"><span data-icon="logout" data-icon-class="size-4"></span>Sign out</button></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="flex-1 p-4 md:p-6 lg:p-8 max-w-[1280px] w-full mx-auto">
+      <div id="role-banner"></div>
+      <div id="load-state"></div>
+
+      <!-- ============ TODAY ============ -->
+      <section data-view="today" hidden>
+        <article class="card bg-base-100 border border-base-300 mb-6">
+          <div class="card-body grid md:grid-cols-[1fr_auto] gap-6 items-center">
+            <div>
+              <p class="text-xs uppercase tracking-wide text-muted" data-bind="today-date"></p>
+              <h2 class="text-2xl md:text-3xl font-extrabold mt-1" id="greeting"></h2>
+              <p class="text-sm text-muted mt-1" id="emp-role"></p>
+              <div class="flex flex-wrap items-center gap-3 mt-4">
+                <span id="work-status"></span>
+                <span class="inline-flex items-center gap-2 rounded-box bg-base-200 px-3 py-1.5 text-sm">
+                  <span data-icon="clock" data-icon-class="size-4 text-primary"></span>Worked today
+                  <span id="work-timer" class="font-bold num font-mono">00:00:00</span>
+                </span>
+              </div>
+            </div>
+            <div class="text-center md:text-right">
+              <p id="clock" class="text-4xl md:text-5xl font-extrabold num tracking-tight">--:--</p>
+              <p id="clock-date" class="text-xs text-muted mt-1 mb-4">Local time</p>
+              <button type="button" id="btn-check" class="btn" data-requires="edit"></button>
+            </div>
+          </div>
+        </article>
+        <div id="today-kpis" class="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-6"></div>
+        <div class="grid grid-cols-12 gap-6">
+          <article class="card bg-base-100 border border-base-300 col-span-12 lg:col-span-7">
+            <div class="card-body">
+              <h2 class="card-title text-base">Today's activity</h2>
+              <ol id="today-timeline" class="ph-timeline space-y-4 mt-2"></ol>
+            </div>
+          </article>
+          <article class="card bg-base-100 border border-base-300 col-span-12 lg:col-span-5">
+            <div class="card-body">
+              <h2 class="card-title text-base">Where time went</h2>
+              <div class="chart-box h-72"><canvas id="chart-apps" role="img" aria-label="Doughnut chart of application usage today"></canvas></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ ATTENDANCE ============ -->
+      <section data-view="attendance" hidden>
+        <div id="att-kpis" class="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-6"></div>
+        <article class="card bg-base-100 border border-base-300">
+          <div class="card-body">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div role="tablist" class="tabs tabs-box w-fit" id="att-tabs">
+                <button type="button" role="tab" class="tab tab-active" data-tab="week" aria-selected="true">Week</button>
+                <button type="button" role="tab" class="tab" data-tab="log" aria-selected="false">Daily log</button>
+              </div>
+              <div class="join" id="week-nav">
+                <button type="button" class="join-item btn btn-sm" id="week-prev" aria-label="Previous week"><span data-icon="chevronLeft" data-icon-class="size-4"></span></button>
+                <span class="join-item btn btn-sm btn-ghost pointer-events-none num" id="week-label">Week</span>
+                <button type="button" class="join-item btn btn-sm" id="week-next" aria-label="Next week"><span data-icon="chevronRight" data-icon-class="size-4"></span></button>
+              </div>
+            </div>
+            <div data-pane="week" class="mt-4"><div id="week-grid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3"></div></div>
+            <div data-pane="log" class="mt-4" hidden>
+              <div class="overflow-x-auto border border-base-300 rounded-box max-h-[30rem]">
+                <table class="table table-sm table-pin-rows">
+                  <thead><tr class="bg-base-200">
+                    <th scope="col">Date</th><th scope="col" class="text-right">Check-in</th><th scope="col" class="text-right">Check-out</th>
+                    <th scope="col" class="text-right">Worked</th><th scope="col" class="text-right">Idle</th><th scope="col">Status</th>
+                  </tr></thead>
+                  <tbody id="log-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ============ SCORE ============ -->
+      <section data-view="score" hidden>
+        <div class="grid grid-cols-12 gap-6 mb-6">
+          <article class="card bg-base-100 border border-base-300 col-span-12 lg:col-span-4">
+            <div class="card-body items-center text-center" id="score-hero"></div>
+          </article>
+          <article class="card bg-base-100 border border-base-300 col-span-12 lg:col-span-8">
+            <div class="card-body">
+              <h2 class="card-title text-base">Score — last 30 days</h2>
+              <div class="chart-box h-72"><canvas id="chart-score" role="img" aria-label="Line chart of daily presence score"></canvas></div>
+            </div>
+          </article>
+        </div>
+        <article class="card bg-base-100 border border-base-300">
+          <div class="card-body">
+            <h2 class="card-title text-base">You vs department average</h2>
+            <div class="chart-box h-60"><canvas id="chart-compare" role="img" aria-label="Grouped bar chart comparing your metrics with the department average"></canvas></div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ============ NOTIFICATIONS ============ -->
+      <section data-view="notifications" hidden>
+        <article class="card bg-base-100 border border-base-300 max-w-3xl">
+          <div class="card-body">
+            <div class="flex items-center justify-between">
+              <p class="text-sm text-muted" id="notif-summary"></p>
+              <button type="button" class="btn btn-sm btn-ghost text-primary" id="btn-mark-all" data-requires="edit"><span data-icon="check" data-icon-class="size-4"></span>Mark all read</button>
+            </div>
+            <ul id="notif-list" class="divide-y divide-base-300 mt-2"></ul>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div class="drawer-side z-40">
+    <label for="nav-drawer" class="drawer-overlay" aria-label="Close navigation"></label>
+    <aside class="w-64 min-h-full bg-base-100 border-r border-base-300 flex flex-col">
+      <a href="#today" class="flex items-center gap-2.5 px-5 h-16 border-b border-base-300">
+        <svg class="size-8" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0369a1"/><path d="M9 21.5a9 9 0 0 1 0-11M23 10.5a9 9 0 0 1 0 11" fill="none" stroke="#e0f2fe" stroke-width="2.2" stroke-linecap="round"/><path d="M12.6 18.6a4.5 4.5 0 0 1 0-5.2M19.4 13.4a4.5 4.5 0 0 1 0 5.2" fill="none" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.6" fill="#bef264"/></svg>
+        <span class="text-lg font-extrabold tracking-tight">PresenceHub</span>
+      </a>
+      <nav class="flex-1 p-3" aria-label="Employee navigation">
+        <ul class="menu w-full gap-0.5">
+          <li class="menu-title">My presence</li>
+          <li><a href="#today" data-nav="today"><span data-icon="home" data-icon-class="size-4"></span>Today</a></li>
+          <li><a href="#attendance" data-nav="attendance"><span data-icon="calendar" data-icon-class="size-4"></span>My attendance</a></li>
+          <li><a href="#score" data-nav="score"><span data-icon="star" data-icon-class="size-4"></span>My score</a></li>
+          <li><a href="#notifications" data-nav="notifications"><span data-icon="bell" data-icon-class="size-4"></span>Notifications<span class="badge badge-sm badge-primary ms-auto num" data-bind="unread-count"></span></a></li>
+          <li class="menu-title mt-3">Switch</li>
+          <li><a href="index.html"><span data-icon="overview" data-icon-class="size-4"></span>Admin console</a></li>
+        </ul>
+      </nav>
+      <div class="p-4 border-t border-base-300 text-xs text-muted">
+        <p class="font-medium text-base-content" data-bind="session-role"></p>
+        <p>Demo · mock data only</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div id="toast-host" class="toast toast-end z-50" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" integrity="sha384-bs/nf9FbdNouRbMiFcrcZfLXYPKiPaGVGplVbv7dLGECccEXDW+S3zjqSKR5ZEaD" crossorigin="anonymous" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/ui.js" defer></script>
+<script src="js/employee.js" defer></script>
+</body>
+</html>

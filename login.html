@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-page="login" data-theme="presence-light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Sign in · PresenceHub</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="js/boot.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.0.43/daisyui.css" integrity="sha384-GpZvzTn90XHbuU32zaqvKd1BTQ48STfdKZ45UrD3RqgurdsfZTYDkN6SFY7NpeEo" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11/dist/index.global.js" integrity="sha384-XXN6/S6yXj8EpXnBTw3JGR9ZM+hixGxFCLYn0FHtg9cWh0ziKmAgTPEhecbCDOmj" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="min-h-screen">
+  <div class="ph-app min-h-screen grid lg:grid-cols-2">
+    <!-- Brand panel -->
+    <section class="hidden lg:flex flex-col justify-between bg-neutral text-neutral-content p-12">
+      <div class="flex items-center gap-3">
+        <svg class="size-10" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0369a1"/><path d="M9 21.5a9 9 0 0 1 0-11M23 10.5a9 9 0 0 1 0 11" fill="none" stroke="#e0f2fe" stroke-width="2.2" stroke-linecap="round"/><path d="M12.6 18.6a4.5 4.5 0 0 1 0-5.2M19.4 13.4a4.5 4.5 0 0 1 0 5.2" fill="none" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.6" fill="#bef264"/></svg>
+        <span class="text-xl font-extrabold tracking-tight">PresenceHub</span>
+      </div>
+      <div class="max-w-md">
+        <h1 class="text-4xl font-extrabold leading-tight">Attendance intelligence for hybrid teams.</h1>
+        <p class="mt-4 text-neutral-content/75">See who is in, how the day is going, and where attention is needed — from one admin console and a self-service view for every employee.</p>
+        <ul class="mt-8 space-y-3 text-sm text-neutral-content/85">
+          <li class="flex items-center gap-2"><span data-icon="activity" data-icon-class="size-4 text-accent"></span>Live presence and check-in activity</li>
+          <li class="flex items-center gap-2"><span data-icon="calendar" data-icon-class="size-4 text-accent"></span>30-day attendance history and trends</li>
+          <li class="flex items-center gap-2"><span data-icon="key" data-icon-class="size-4 text-accent"></span>Directory sync with role mapping</li>
+        </ul>
+      </div>
+      <p class="text-xs text-neutral-content/60">Portfolio demo · mock data only · no real backend</p>
+    </section>
+
+    <!-- Sign-in form -->
+    <main class="flex items-center justify-center p-6">
+      <div class="w-full max-w-sm">
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex items-center gap-2 lg:invisible">
+            <svg class="size-8" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0369a1"/><path d="M9 21.5a9 9 0 0 1 0-11M23 10.5a9 9 0 0 1 0 11" fill="none" stroke="#e0f2fe" stroke-width="2.2" stroke-linecap="round"/><path d="M12.6 18.6a4.5 4.5 0 0 1 0-5.2M19.4 13.4a4.5 4.5 0 0 1 0 5.2" fill="none" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="2.6" fill="#bef264"/></svg>
+            <span class="font-extrabold">PresenceHub</span>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm btn-square" data-action="toggle-theme" aria-label="Toggle theme"></button>
+        </div>
+
+        <h2 class="text-2xl font-bold">Sign in</h2>
+        <p class="text-sm text-muted mt-1">Use the demo account you were given.</p>
+
+        <div id="login-message" class="mt-6" aria-live="polite"></div>
+
+        <form id="login-form" class="mt-6 flex flex-col gap-4" novalidate autocomplete="on">
+          <label class="flex flex-col gap-1.5">
+            <span class="text-sm font-medium">Username</span>
+            <input id="username" name="username" type="text" class="input w-full" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="64" required>
+          </label>
+          <label class="flex flex-col gap-1.5">
+            <span class="text-sm font-medium">Password</span>
+            <input id="password" name="password" type="password" class="input w-full" autocomplete="current-password" maxlength="128" required>
+          </label>
+          <button id="login-submit" type="submit" class="btn btn-primary mt-2"><span data-icon="login" data-icon-class="size-4"></span>Sign in</button>
+        </form>
+
+        <div class="mt-8 text-xs text-muted space-y-1">
+          <p><span class="font-semibold">admin</span> — full console and employee view.</p>
+          <p><span class="font-semibold">viewer</span> — read-only dashboards.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-host" class="toast toast-end z-50" aria-live="polite"></div>
+
+  <script src="js/auth-config.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/login.js" defer></script>
+</body>
+</html>
