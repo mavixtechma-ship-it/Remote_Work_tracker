@@ -186,6 +186,7 @@
       b.addEventListener('click', function () { setMode(currentMode() === 'dark' ? 'light' : 'dark'); });
     });
     $$('[data-action="logout"]').forEach(function (b) { b.addEventListener('click', logout); });
+    initOwner();
     if (session) {
       $$('[data-bind="session-user"]').forEach(function (el) { el.textContent = session.user; });
       $$('[data-bind="session-role"]').forEach(function (el) { el.textContent = ROLE_LABEL[session.role]; });
@@ -321,6 +322,78 @@
     setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   }
 
+  // ---------------------------------------------------------------- Owner branding (Mavix Tech)
+  // Copy/paths come from js/owner.js (window.PH_OWNER). Logos are same-origin <img> files (CSP img-src 'self').
+  var OWNER = window.PH_OWNER;
+  // Light + dark variants; css/app.css shows the one matching html[data-mode].
+  function themedImg(light, dark, cls, alt) {
+    return h('span', { class: 'ph-mx-img inline-flex shrink-0' },
+      h('img', { class: 'ph-mx-light ' + cls, attrs: { src: light, alt: alt, decoding: 'async' } }),
+      h('img', { class: 'ph-mx-dark ' + cls, attrs: { src: dark, alt: alt, decoding: 'async' } }));
+  }
+  function ownerLink(cls, children, label) {
+    return h('a', { class: cls, attrs: { href: OWNER.url, target: '_blank', rel: 'noopener noreferrer', 'aria-label': label || null } }, children);
+  }
+  // Login page: "Built by Mavix Tech" block.
+  function ownerCredit() {
+    return h('div', { class: 'ph-mx-credit flex flex-col items-center gap-2 text-center' },
+      h('span', { class: 'text-xs text-muted', text: 'Built by' }),
+      ownerLink('inline-flex', themedImg(OWNER.logo, OWNER.logoDark, 'h-8 w-auto', OWNER.name), OWNER.name + ' website (opens in a new tab)'),
+      h('p', { class: 'text-xs text-muted', text: OWNER.tagline }),
+      ownerLink('link link-hover text-xs font-semibold ph-mx-accent inline-flex items-center gap-1',
+        ['Visit website', icon('external', 'size-3.5')], 'Visit the ' + OWNER.name + ' website (opens in a new tab)'));
+  }
+  // Sidebar bottom: compact "Powered by" badge; a collapsed (narrow) sidebar shows the mark only + tooltip.
+  function ownerBadge() {
+    return ownerLink('ph-mx-badge flex items-center gap-2.5 rounded-box px-2 py-1.5 hover:bg-base-200 transition-colors',
+      [themedImg(OWNER.mark, OWNER.markDark, 'size-7', ''),
+        h('span', { class: 'ph-mx-badge-text flex flex-col leading-tight min-w-0' },
+          h('span', { class: 'text-[0.65rem] uppercase tracking-wide text-muted', text: 'Powered by' }),
+          h('span', { class: 'text-sm font-bold ph-mx-ink truncate', text: OWNER.name }))],
+      'Powered by ' + OWNER.name + ' (opens in a new tab)');
+  }
+  var aboutDialog = null;
+  function buildAbout() {
+    var close = function () { aboutDialog.close(); };
+    aboutDialog = h('dialog', { class: 'modal', attrs: { 'aria-labelledby': 'ph-about-title' } },
+      h('div', { class: 'modal-box max-w-md' },
+        h('button', { class: 'btn btn-sm btn-circle btn-ghost absolute right-3 top-3', attrs: { type: 'button', 'aria-label': 'Close' }, on: { click: close } }, icon('x', 'size-4')),
+        h('h3', { id: 'ph-about-title', class: 'text-lg font-bold', text: 'PresenceHub' }),
+        h('p', { class: 'text-sm text-muted', text: 'Demo system · mock data only' }),
+        h('div', { class: 'divider my-3' }),
+        h('div', { class: 'flex flex-col items-center gap-3 text-center' },
+          themedImg(OWNER.logo, OWNER.logoDark, 'h-12 w-auto', OWNER.name),
+          h('p', { class: 'text-sm font-semibold ph-mx-accent', text: OWNER.tagline }),
+          h('p', { class: 'text-sm', text: OWNER.description }),
+          h('p', { class: 'text-sm font-semibold', text: OWNER.cta })),
+        h('div', { class: 'modal-action' },
+          h('button', { class: 'btn btn-ghost btn-sm', text: 'Close', attrs: { type: 'button' }, on: { click: close } }),
+          ownerLink('btn btn-sm ph-mx-btn', ['Visit website', icon('external', 'size-4')], 'Visit the ' + OWNER.name + ' website (opens in a new tab)'))),
+      h('div', { class: 'modal-backdrop' },
+        h('button', { text: 'close', attrs: { type: 'button', tabindex: '-1' }, on: { click: close } })));
+    document.body.appendChild(aboutDialog);
+  }
+  function openAbout() {
+    if (!aboutDialog) buildAbout();
+    if (typeof aboutDialog.showModal === 'function') aboutDialog.showModal();
+    else aboutDialog.setAttribute('open', '');
+  }
+  function initOwner() {
+    if (!OWNER) return;
+    $$('[data-owner="login"]').forEach(function (el) { el.replaceChildren(ownerCredit()); });
+    $$('[data-owner="sidebar"]').forEach(function (el) {
+      var badge = ownerBadge();
+      badge.setAttribute('title', 'Powered by ' + OWNER.name + ' · ' + OWNER.tagline);
+      el.replaceChildren(badge);
+    });
+    $$('[data-action="about"]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); // close the DaisyUI dropdown
+        openAbout();
+      });
+    });
+  }
+
   window.PH_UI = Object.freeze({
     h: h, $: $, $$: $$, icon: icon, hydrateIcons: hydrateIcons,
     minutesLabel: minutesLabel, hoursDecimal: hoursDecimal, toMinutes: toMinutes, fromMinutes: fromMinutes,
@@ -330,5 +403,6 @@
     avatar: avatar, statusBadge: statusBadge, behaviourBadge: behaviourBadge, kpiTile: kpiTile,
     emptyState: emptyState, errorState: errorState, skeleton: skeleton,
     chart: chart, alpha: alpha, palette: palette, downloadCsv: downloadCsv,
+    openAbout: openAbout,
   });
 })();

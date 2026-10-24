@@ -43,6 +43,9 @@ js/boot.js            <head> script: theme before paint + session guard/redirect
 js/auth-config.js     account hashes (no plaintext)
 js/login.js           PBKDF2 verification, throttling, safe redirect
 js/ui.js              shared DOM builder, icons, KPI tile, badges, toasts, chart + CSV helpers, role gating
+js/owner.js           owner branding constants (Mavix Tech copy, link, logo paths)
+assets/mavix/         Mavix Tech logo + mark SVGs (light/dark)
+docs/mavix-logo.png   README logo
 js/data.js            data loader (fetch -> bundle fallback)
 js/data.bundle.js     GENERATED from data/*.json
 js/admin.js           admin console views
@@ -139,3 +142,7 @@ All names are generated fictional combinations (e.g. "Gideon Coldbrook"); emails
 - `node --check` on every `js/*.js` and `tools/*.mjs`: pass.
 - Headless Chrome run over `npx serve` (admin and viewer: every route of both pages, simulate, theme toggle, logout, wrong password) and over `file://`: no console errors, warnings or failed requests.
 - Grep for former names/hosts, inline click attributes and inner-HTML sinks: no hits.
+
+## Owner branding: Mavix Tech
+
+`js/owner.js` (`window.PH_OWNER`) holds the copy and link; `js/ui.js` `initShell()` mounts a "Built by Mavix Tech" block on the login page (`[data-owner="login"]`), a "Powered by Mavix Tech" badge at the sidebar bottom (`[data-owner="sidebar"]`, mark-only when the sidebar is narrow), and an About dialog (DaisyUI `<dialog class="modal">`, DOM-built) opened from the account menu `[data-action="about"]`. Logos are same-origin `<img>` files with light/dark variants switched by `html[data-mode]`; CSP unchanged. External link: https://mavixtechma-ship-it.github.io/Mavix/ (`target="_blank" rel="noopener noreferrer"`).

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'">
   <meta name="referrer" content="no-referrer">
+  <meta name="author" content="Mavix Tech">
   <title>Sign in · PresenceHub</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script src="js/boot.js"></script>
@@ -67,6 +68,8 @@
           <p><span class="font-semibold">admin</span> — full console and employee view.</p>
           <p><span class="font-semibold">viewer</span> — read-only dashboards.</p>
         </div>
+
+        <div class="mt-8 pt-6 border-t border-base-300" data-owner="login"></div>
       </div>
     </main>
   </div>
@@ -74,6 +77,7 @@
   <div id="toast-host" class="toast toast-end z-50" aria-live="polite"></div>
 
   <script src="js/auth-config.js" defer></script>
+  <script src="js/owner.js" defer></script>
   <script src="js/ui.js" defer></script>
   <script src="js/login.js" defer></script>
 </body>

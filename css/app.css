@@ -122,3 +122,20 @@ html:not(.ph-ready) .ph-app { visibility: hidden; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* ---------- Owner branding (Mavix Tech) — palette scoped to these blocks only ---------- */
+.ph-mx-dark { display: none; }
+[data-mode="dark"] .ph-mx-light { display: none; }
+[data-mode="dark"] .ph-mx-dark { display: block; }
+.ph-mx-ink { color: #0B1B3F; }
+[data-mode="dark"] .ph-mx-ink { color: #e2e8f0; }
+.ph-mx-accent { color: #1E5EFF; }
+[data-mode="dark"] .ph-mx-accent { color: #38BDF8; }
+.ph-mx-btn { background-image: linear-gradient(135deg, #1E5EFF, #38BDF8); color: #ffffff; border: 0; }
+.ph-mx-btn:hover { filter: brightness(1.06); }
+/* Sidebar slot: when the sidebar is collapsed (narrow), show the mark only; the title attribute is the tooltip. */
+.ph-mx-slot { container-type: inline-size; }
+@container (max-width: 7rem) {
+  .ph-mx-badge { justify-content: center; padding-inline: 0; }
+  .ph-mx-badge-text { display: none; }
+}

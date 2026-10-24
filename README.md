@@ -39,3 +39,13 @@ There are two roles: `admin` (full access) and `viewer` (read-only). Ask the pro
 
 ## Tech
 HTML · vanilla JavaScript modules · Tailwind CSS · DaisyUI · Chart.js · Content-Security-Policy with SRI-pinned CDNs · PBKDF2-hashed credentials (WebCrypto)
+
+## Developed by Mavix Tech
+
+![Mavix Tech](docs/mavix-logo.png)
+
+**Systems · Automation · Graduation Projects**
+
+Custom business systems, workflow automation and complete graduation projects. ASP.NET, Angular, SQL Server.
+
+Have an idea? Let's build it. [Visit the Mavix Tech website](https://mavixtechma-ship-it.github.io/Mavix/)

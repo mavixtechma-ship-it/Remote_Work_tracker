@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'">
   <meta name="referrer" content="no-referrer">
+  <meta name="author" content="Mavix Tech">
   <title>Admin console · PresenceHub</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script src="js/boot.js"></script>
@@ -37,6 +38,7 @@
         <ul tabindex="0" class="dropdown-content menu bg-base-100 border border-base-300 rounded-box w-56 p-2 mt-2 shadow-sm z-40">
           <li class="menu-title"><span data-bind="session-role"></span></li>
           <li><a href="user.html"><span data-icon="user" data-icon-class="size-4"></span>Employee view</a></li>
+          <li><button type="button" data-action="about"><span data-icon="info" data-icon-class="size-4"></span>About</button></li>
           <li><button type="button" data-action="logout"><span data-icon="logout" data-icon-class="size-4"></span>Sign out</button></li>
         </ul>
       </div>
@@ -319,6 +321,7 @@
         <p class="font-medium text-base-content" data-bind="session-role"></p>
         <p>Demo · mock data only</p>
       </div>
+      <div class="ph-mx-slot px-3 pb-3" data-owner="sidebar"></div>
     </aside>
   </div>
 </div>
@@ -327,6 +330,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" integrity="sha384-bs/nf9FbdNouRbMiFcrcZfLXYPKiPaGVGplVbv7dLGECccEXDW+S3zjqSKR5ZEaD" crossorigin="anonymous" defer></script>
 <script src="js/data.js" defer></script>
+<script src="js/owner.js" defer></script>
 <script src="js/ui.js" defer></script>
 <script src="js/admin.js" defer></script>
 </body>
